@@ -4352,7 +4352,7 @@ angular.module("leaflet-directive").directive('markers',
     var _addMarkers = function(markersToRender, oldModels, map, layers, leafletMarkers, leafletScope,
                                watchOptions, maybeLayerName, skips){
         for (var newName in markersToRender) {
-            if(skips[newName])
+            if(!markersToRender.hasOwnProperty(newName) || skips[newName])
                 continue;
 
             if (newName.search("-") !== -1) {
